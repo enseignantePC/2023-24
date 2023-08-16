@@ -67,9 +67,9 @@
             page_to_footnotes_map.update(x => {
                 let key = str(loc.position().page)
                 if x.at(key, default: none) != none {
-                    x.at(key).push(it.func())
+                    x.at(key).push(it.note)
                 } else {
-                    x.insert(key, (it.func(),))
+                    x.insert(key, (it.note,))
                 }
                 x
             })
@@ -81,7 +81,7 @@
                 let dict = page_to_footnotes_map.final(loc)
                 let page = loc.position().page
                 let list = dict.at(str(page))
-                if list.last() == it.func() [#list] else [false]
+                if list.last() == it.note [#it.note == #list.last()] else [false]
             }
         )
 
