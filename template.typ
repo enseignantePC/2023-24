@@ -62,16 +62,26 @@
         ]
 
     #show footnote.entry: it => {
-        
+        // add the footnote to the map
+        locate(loc => {
+            page_to_footnotes_map.update(x => {
+                let key = str(loc.position().page)
+                if x.at(key, default: none) != none {
+                    x.at(key).push(it.func())
+                } else {
+                    x.insert(key, (it.func(),))
+                }
+                x
+            })
+        })
+
+        // compare with different from last on this page
         locate(
             loc => {
-                [
-                    //here
-                    #{
-                        page_to_footnotes_map.update(x=>x.insert(jygighjhg))}
-                    #it.note
-                ]
-                // if this_counter.at(it.location()) != this_counter.final(loc) {this_counter.final().display()} else {[it]}
+                let dict = page_to_footnotes_map.final(loc)
+                let page = loc.position().page
+                let list = dict.at(str(page))
+                if list.last() == it.func() [#list] else [false]
             }
         )
 
