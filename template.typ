@@ -61,7 +61,21 @@
 
         ]
 
+    #show footnote.entry: it => {
+        
+        locate(
+            loc => {
+                [
+                    //here
+                    #{
+                        page_to_footnotes_map.update(x=>x.insert(jygighjhg))}
+                    #it.note
+                ]
+                // if this_counter.at(it.location()) != this_counter.final(loc) {this_counter.final().display()} else {[it]}
+            }
+        )
 
+    }
     #align(center)[#rect(width : 100%, fill: gray)[
         #layout(size => align(center)[#rect(inset : 7pt, width: 95%*size.width, fill : white,radius: 5pt)[
             #set text(size: 21pt )
