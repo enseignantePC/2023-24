@@ -1,14 +1,13 @@
-#let qcounter = counter("question")
-#let question(body) = [
-    #counter("question").step()
-    // #let page = 
-    // #locate(loc => [
-    *Question #counter("question").display())* #body
-    // #let (x:x, y:y) = loc.position()
-    // #x#y
-    // #place( left + top, dx : x, dy : y)[#rect()]
-    // ])
-]
+#import "detect.typ": detect
+
+#let page_to_footnotes_map = state("ptfm",(:))
+#let question(body) = detect(
+    body : (counter, loc) => [*Question #counter.display()* #body #linebreak()],
+    add: (counter,loc) => place(bottom + right)[*La question #counter.display() continue sur la page suivante...*],
+)
+
+
+
 
 #let bonus = [
     #set align(center)
@@ -41,6 +40,7 @@
 
 #let activité(titre : none, chapitre: none, number : none, body) = [
     #set page(
+        paper: "a4",
         margin: (x : 1.2cm, top: 2cm, bottom: 1cm),
         footer: align(center, counter(page).display("1 / 1", both : true)) ,
         header: [
@@ -52,7 +52,9 @@
             #v(-5pt)
             ]
         )
-    #set par(justify: true, linebreaks: "optimized")
+    #set par(justify: true, 
+    // linebreaks: "optimized"
+    )
     #set heading(numbering: "1.", supplement: [Partie],)
     #show heading.where(level : 1): it => [
         #v(1em, weak : true)
@@ -67,9 +69,9 @@
             page_to_footnotes_map.update(x => {
                 let key = str(loc.position().page)
                 if x.at(key, default: none) != none {
-                    x.at(key).push(it.note)
+                    x.at(key).push(it)
                 } else {
-                    x.insert(key, (it.note,))
+                    x.insert(key, (it,))
                 }
                 x
             })
@@ -81,12 +83,13 @@
                 let dict = page_to_footnotes_map.final(loc)
                 let page = loc.position().page
                 let list = dict.at(str(page))
-                if list.last() == it.note [#it.note == #list.last()] else [false]
+                if list.last() == it [#it #v(2em)] else [#it]
             }
         )
+        
 
     }
-    #align(center)[#rect(width : 100%, fill: gray)[
+    #align(center)[#rect(width : 90%, radius: 130pt, fill: gray)[
         #layout(size => align(center)[#rect(inset : 7pt, width: 95%*size.width, fill : white,radius: 5pt)[
             #set text(size: 21pt )
 
@@ -100,8 +103,14 @@
 #activité(titre: [Titre générique], chapitre: 1, number: 1)[
     #introduction(title : [Introduction], lorem(70))
     = Le coté physique
-    #question(lorem(20))
+    #question(lorem(50))
+    #question(lorem(150))
 
+    #question(lorem(150))
+
+    #question(lorem(290))
+
+        // #question(lorem(150))
     = La chimie du monde
     #bonus
 ]
