@@ -1,10 +1,35 @@
 #import "detect.typ": detect
+#import "@preview/showybox:1.1.0": showybox
 
 #let page_to_footnotes_map = state("ptfm",(:))
 #let question(body) = detect(
-    body : (counter, loc) => [*Question #counter.display()* #body #linebreak()],
+    body : (counter, loc) => text(size : 1.2em)[*Question #counter.display())*] +  [#h(.5em) #body #linebreak()],
     add: (counter,loc) => place(bottom + right)[*La question #counter.display() continue sur la page suivante...*],
 )
+
+#let doc_counter = counter("doc")
+#let doc(..body) = {
+    doc_counter.step()
+    showybox(
+
+        title: text(size: 15pt)[Doc. #doc_counter.display()],
+        frame : (
+            title-color : red.lighten(70%),
+            body-color: gray.lighten(60%),
+        ),
+        border-style : (color:black),
+        title-style : (
+            color: red.darken(40%),
+            weight: "bold",
+            boxed : true,
+            align : center,
+        ),
+        shadow : (color : black),
+        ..body
+        )
+
+}
+
 
 #let bonus = [
     #set align(center)
@@ -36,7 +61,7 @@
 #let activité(title : none, chapter_name: none, number : none, body) = [
     #set page(
         paper: "a4",
-        margin: (x : 1.2cm, top: 2cm, bottom: 1cm),
+        margin: (x : 1.2cm, top: 2cm, bottom: 2cm),
         footer: align(center, counter(page).display("1 / 1", both : true)) ,
         header: [
             Activité #number --- chapter #chapter_name
@@ -97,17 +122,18 @@
 #activité(title: [Titre générique], chapter_name: [Nom Du Chapitre], number: 1)[
     #introduction(title : [Introduction], lorem(70))
     = Le coté physique
+    #columns(2, /*TODO tight*/ )[
+        #doc(lorem(20))
+        #colbreak()
+        #doc(lorem(60))
+    ]
 
-    #footnote(lorem(21))
     #question(lorem(50))
     #question(lorem(150))
 
-    #footnote(lorem(20))
+    #question(lorem(190))
 
-    #question(lorem(150))
-
-    #question(lorem(1260))
-
+    #question(lorem(50))
         // #question(lorem(150))
     = La chimie du monde
     #bonus
