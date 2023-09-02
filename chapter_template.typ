@@ -1,4 +1,5 @@
 #import "detect.typ": detect
+#import "style.typ": doc
 
 #let minititle(it) = box(
             inset : (top: 2pt, bottom: 2pt, x: 5pt),
@@ -18,6 +19,8 @@
 }
 
 
+
+
 #let chapitre(
     title: none, 
     number: none, 
@@ -29,9 +32,9 @@
         margin: (x : 1.2cm, top: 2.5cm, bottom: 1cm),
         footer: align(center, counter(page).display("1 / 1", both : true)) ,
         header: [
-            #set par(leading: 0pt)
-            #line(stroke: .5pt, length: 100%)
-            #v(-8pt)
+            // #set par(leading: 0pt)
+            #place(dy: 15pt,line(stroke: .5pt, length: 100%))
+            // #v(-8pt)
             #h(1fr)
             2023-24
             #h(1fr)
@@ -41,11 +44,11 @@
         )
     #set par(justify: true, linebreaks: "optimized")
     #set text(size: 14pt)
-    // #show heading.where(level : 1): it => [
-    //     #v(1em, weak : true)
-    //     #set align(center)
-    //     #minititle[#it.supplement #counter(heading).display() #it.body]
-    //     ]
+    #show heading.where(level : 1): it => [
+        #v(1em, weak : true)
+        #set align(center)
+        #minititle[#it.body]
+        ]
     #v(-5.5pt)
     #align(center)[#rect(
         width : 90%, 
@@ -65,28 +68,24 @@
         
         ]])
     ]]
-    #set align(center)
-
-    #columns(2)[
-        #assert(type(objectifs) == "array")
+    // #set align(center)
+    #assert(type(objectifs) == "array", message: "objectifs must be of type array")
         *_#stack(dir: ltr,
             [Objectifs: #h(7pt)],
             list(marker: [-], ..objectifs)
             )
         _*
-        
-        #colbreak()
-        #set align(left)
-        #for k in range(6) {
-            [Acitivité #k: ]
-            [...] * 1
-            linebreak()
-        }
 
+    #columns(2)[
+
+        
+        // #colbreak()
+        
+
+    #body
     
     ]
 
-    #body
 ]
 
 #chapitre(title: [Titre du chapitre], number: 1, objectifs: ([Réussir], [Devenir fort]))[

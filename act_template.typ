@@ -1,34 +1,10 @@
 #import "detect.typ": detect
-#import "@preview/showybox:1.1.0": showybox
-
+#import "style.typ": doc
 #let page_to_footnotes_map = state("ptfm",(:))
 #let question(body) = detect(
     body : (counter, loc) => text(size : 1.2em)[*Question #counter.display())*] +  [#h(.5em) #body #linebreak()],
     add: (counter,loc) => place(bottom + right)[*La question #counter.display() continue sur la page suivante...*],
 )
-
-#let doc_counter = counter("doc")
-#let doc(..body) = {
-    doc_counter.step()
-    showybox(
-
-        title: text(size: 15pt)[Doc. #doc_counter.display()],
-        frame : (
-            title-color : red.lighten(70%),
-            body-color: gray.lighten(60%),
-        ),
-        border-style : (color:black),
-        title-style : (
-            color: red.darken(40%),
-            weight: "bold",
-            boxed : true,
-            align : center,
-        ),
-        shadow : (color : black),
-        ..body
-        )
-
-}
 
 
 #let bonus = [
