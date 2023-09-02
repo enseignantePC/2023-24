@@ -1,5 +1,8 @@
 #set page(paper: "a4")
-#set par(justify: true,linebreaks: "optimized")
+#set align(center)
+#set par(justify: true, linebreaks: "optimized")
+
+
 #import "@preview/tablex:0.0.4": *
 
 #let titre(x) = x
@@ -8,7 +11,6 @@
 
 = Programme officiel
 
-#set align(center)
 
 #tablex(
     columns: 2,

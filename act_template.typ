@@ -6,9 +6,6 @@
     add: (counter,loc) => place(bottom + right)[*La question #counter.display() continue sur la page suivante...*],
 )
 
-
-
-
 #let bonus = [
     #set align(center)
     #v(1em, weak : true)
@@ -18,12 +15,10 @@
     )
 ]
 
-
 #let minititle(it) = box(
             inset : (top: 2pt, bottom: 2pt, x: 5pt),
             text(18pt)[_#it _]
-            )
-        
+)
 
 #let introduction(title : [Introduction], it) = {
     rect(
@@ -38,13 +33,13 @@
 }
 
 
-#let activité(titre : none, chapitre: none, number : none, body) = [
+#let activité(title : none, chapter_name: none, number : none, body) = [
     #set page(
         paper: "a4",
         margin: (x : 1.2cm, top: 2cm, bottom: 1cm),
         footer: align(center, counter(page).display("1 / 1", both : true)) ,
         header: [
-            Activité #number --- Chapitre #chapitre
+            Activité #number --- chapter #chapter_name
             #h(1fr)
             2023-24
             #h(1fr)
@@ -52,6 +47,7 @@
             #v(-5pt)
             ]
         )
+    #set text(size: 14pt)
     #set par(justify: true, 
     // linebreaks: "optimized"
     )
@@ -83,32 +79,34 @@
                 let dict = page_to_footnotes_map.final(loc)
                 let page = loc.position().page
                 let list = dict.at(str(page))
-                if list.last() == it [#it #v(2em)] else [#it]
+                if list.last() == it [#it #v(1em)] else [#it]
             }
         )
-        
-
     }
     #align(center)[#rect(width : 90%, radius: 130pt, fill: gray)[
         #layout(size => align(center)[#rect(inset : 7pt, width: 95%*size.width, fill : white,radius: 5pt)[
             #set text(size: 21pt )
 
-            *Activité #number: #titre* 
+            *Activité #number: #title* 
         
         ]])
     ]]
     #body
 ]
 
-#activité(titre: [Titre générique], chapitre: 1, number: 1)[
+#activité(title: [Titre générique], chapter_name: [Nom Du Chapitre], number: 1)[
     #introduction(title : [Introduction], lorem(70))
     = Le coté physique
+
+    #footnote(lorem(21))
     #question(lorem(50))
     #question(lorem(150))
 
+    #footnote(lorem(20))
+
     #question(lorem(150))
 
-    #question(lorem(290))
+    #question(lorem(1260))
 
         // #question(lorem(150))
     = La chimie du monde
