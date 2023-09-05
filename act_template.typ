@@ -50,7 +50,7 @@
       counter(page).display("1 / 1", both: true),
     ),
     header: [
-      Activité #number --- chapter #chapter_name
+      Activité #number --- chap. #chapter_name
       #h(1fr)
       2023-24
       #h(1fr)
@@ -58,18 +58,14 @@
       #v(-5pt)
     ],
   )
-  #set text(size: 14pt)
-  #set par(
-    justify: true,
-    // linebreaks: "optimized"
-  )
+  
   #set heading(numbering: "1.", supplement: [Partie])
   #show heading.where(level: 1): it => [
     #v(1em, weak: true)
     #set align(center)
     #minititle[#it.supplement #counter(heading).display() #it.body]
   ]
-
+  #set text(size: 13pt)
   #show footnote.entry: it => {
     // add the footnote to the map
     locate(loc => {
