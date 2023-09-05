@@ -20,10 +20,6 @@
 
 #set align(center)
 
-#figure(
-  caption: [Montage de Lavoisier],
-  image("lavoisier.png", width: 60%),
-)
 
 #doc(
   title: [Une expérience historique],
@@ -39,7 +35,11 @@
     pour le faire bouillir.
 
     Le second jour, j'ai commencé à voir nager sur la
-    surface du mercure de petites parcelles rouges \*
+    surface du mercure de petites parcelles rouges 
+    #footnote[Il se produit dans le matras une transformation
+    chimique au cours de laquelle le dioxygène réagit
+    avec le mercure pour former de l'oxyde de mercure
+    HgO, rouge.]
     , qui, pendant quatre ou cinq jours ont augmenté
     en nombre et en volume ; après quoi elles ont
     cessé de grossir et sont restées absolument dans
@@ -58,15 +58,16 @@
     trouvé que de 42 à 43 pouces : il y avait eu par
     conséquent une diminution de volume d'un sixième
     environ.
-
-    \* Il se produit dans le matras une transformation
-    chimique au cours de laquelle le dioxygène réagit
-    avec le mercure pour former de l'oxyde de mercure
-    HgO, rouge.
   ]
 
 
-
+#box(width: 50%)[
+  #figure(
+  caption: [Montage de Lavoisier],
+  image("lavoisier.png"),
+)
+]#box(width:50%)[
+#v(10pt)
 #doc(
   title: [Un chimiste remarquable],
 )[
@@ -84,20 +85,37 @@
     chimique : « rien ne se perd, rien ne se crée,
     tout se transforme ».
   ]
+]
+#v(10pt)
+
+
+
+
+
+  
 #set align(left)
 #question[ 
   L'expérience montre qu'un gaz disparaît:
   *_Donner la formule chimique de ce gaz._*
-  ]
+]
 
 #question[
   L'air est constitué principalement de deux gaz. *_Nommer_* le gaz encore présent dans l'air à la fin de l'expérience ?
 ]
 
 #question[
-  En utilisant les résultats de l'expérience, 
-  
+  En utilisant les résultats de l'expérience,   
   - *_Déterminer_* le volume d'air qui a disparu.
   - *_En déduire_* l'espèce chimique qui s'est transformée.
   - *_En déduire_* sa proportion en volume de l'air.
+]
+#v(-20pt)
+#question[ 
+  #place(dx: 100pt, dy: -26pt)[
+  - *Déterminer* la masse d'un $"mètre"^3$ d'air.
+  - *Déterminer* la masse d'un litre d'air.]
+  #v(10pt)
+  Données: 
+  - Masse volumique de l'air $rho_"air"= 1,225 "kg·m"^(-3) ("à 15 °C").$
+  - $1m^3 = 10^3 "litres"$.
 ]

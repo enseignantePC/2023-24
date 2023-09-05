@@ -1,10 +1,10 @@
 #import "detect.typ": detect
 #import "style.typ": doc
 #let page_to_footnotes_map = state("ptfm", (:))
-#let question(body) = detect(
+#let question(body, supplement : none) = detect(
   body: (counter, loc) => text(
     size: 1.2em,
-  )[*Question #counter.display())*] + [#h(.5em) #body #linebreak()],
+  )[*Question #supplement #counter.display())*] + [#h(.5em) #body #linebreak()],
   add: (counter, loc) => place(
     bottom + right,
   )[*La question #counter.display() continue sur la
