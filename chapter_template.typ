@@ -1,6 +1,8 @@
 #import "detect.typ": detect
 #import "style.typ": doc
 
+// #let doc = doc.with(breakable : false)
+
 #let minititle(it) = box(
   inset: (top: 2pt, bottom: 2pt, x: 5pt),
   text(18pt)[_#it _],
@@ -21,6 +23,7 @@
   title: none,
   number: none,
   objectifs: none,
+  columnized : true,
   body,
 ) = [
   #set page(
@@ -46,8 +49,8 @@
       )
     ],
   )
-  #set par(justify: true, linebreaks: "optimized")
-  #set text(size: 14pt)
+  #set par(linebreaks: "optimized")
+  #set text(size: 13pt)
   #show heading.where(level: 1): it => [
     #v(1em, weak: true)
     #set align(center)
@@ -82,7 +85,7 @@
     list(marker: [-], ..objectifs),
   )
   _*
-
+  #let columns = if columnized {columns} else {(_,y) => y}
   #columns(2)[
     #body
   ]
