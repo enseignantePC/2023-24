@@ -49,7 +49,9 @@
       )
     ],
   )
-  #set par(linebreaks: "optimized")
+  // #set par(linebreaks: "optimized")
+  #set par(justify: true, linebreaks: "optimized")
+
   #set text(size: 13pt)
   #show heading.where(level: 1): it => [
     #v(1em, weak: true)

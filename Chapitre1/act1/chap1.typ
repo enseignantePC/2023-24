@@ -133,5 +133,65 @@
   ]
 
 // https://www.lelivrescolaire.fr/page/6224013
-#doc(title: [Température de changement d'état])[]
-#doc(title: [])[]
+#doc(
+  boxed : false,
+  title: [Température de changement d'état],
+)[    
+    Le passage de la matière d'un état à un autre
+    (solide, liquide ou gazeux) est appelé changement
+    d'état. Pour un corps pur, il se produit à une
+    température donnée, qui dépend de l'espèce
+    chimique constituant le corps pur.
+
+    Le passage de l'état solide à liquide (ou liquide
+    à solide) se produit à la température de fusion,
+    notée $theta_f$.
+
+    Le passage de l'état liquide à l'état gazeux (ou
+    de gazeux à liquide) se produit à la température d'
+    ébullition, notée $theta_e$
+
+  ]
+#pagebreak() // uncomment and bug report
+#columns(2)[
+
+  #doc(title: [Solubilité], breakable : false)[
+   La solubilité s (exprimée en g·L-1) d'une espèce chimique (solide, liquide ou gaz) correspond à la masse maximale de cette espèce que l'on peut dissoudre dans un litre de solution (généralement de l'eau).
+
+  La solubilité dépend de la température et de la nature de la solution. 
+]
+  #colbreak()
+  #figure(image("etat.png", width: 80%))
+]
+
+#doc(title : [Densité et flottaison])[
+   La densité d'un échantillon permet de savoir s'il coule ou s'il flotte dans l'eau. Un échantillon, non miscible, dont la densité est supérieure à 1 coule dans l'eau. Un échantillon, non misible, dont la densité est inférieure à 1 flotte dans l'eau. 
+]
+= Identification d'espèces chimiques
+#doc(title : [Identification par les propriétés physiques])[
+  On peut identifier une espèce chimique par ses caractéristiques physiques (aspect, couleur), mais surtout par ses propriétés physiques.
+  
+  Pour identifier une espèce chimique, il faut comparer ses propriétés physiques à celles qui sont référencées (voir l'énoncé, les fiches de sécurité du NIOSH, le livre Handbook of Chemistry ou Wikipedia).
+
+  Exemple : pour déterminer expérimentalement la température d'ébullition, de fusion, la masse volumique ou la solubilité dans un solvant, on compare la valeur obtenue avec celles fournies dans les tables de référence. 
+]
+
+#columns(
+  2,
+)[
+  #doc(
+    title: [Identification par des tests chimiques],
+    boxed: false,
+  )[
+      Il existe des tests chimiques qui permettent de
+      reconnaître la présence de certaines espèces
+      chimiques.
+    ]
+  #colbreak()
+  #figure(
+    image(
+      "tests_chimiques.png",
+      width: 100%,
+    ),
+  )
+]
