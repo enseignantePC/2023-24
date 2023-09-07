@@ -1,4 +1,4 @@
-#import "../../chapter_template.typ": *
+#import "../chapter_template.typ": *
 #show : it => chapitre(
   title: [ Identification des espèces chimiques. ],
   objectifs: (
@@ -128,8 +128,6 @@
     masse volumique de l'eau.
 
     La densité est donc définie par la relation : #text(size : 1.5em)[$d = rho/rho_"eau"$]
-
-    ~
   ]
 
 // https://www.lelivrescolaire.fr/page/6224013
@@ -195,3 +193,7 @@
     ),
   )
 ]
+
+// #doc(
+//   title: [],
+// )[]

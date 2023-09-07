@@ -5,7 +5,7 @@
 
 #let minititle(it) = box(
   inset: (top: 2pt, bottom: 2pt, x: 5pt),
-  text(18pt)[_#it _],
+  text(18pt, hyphenate: false)[_#it _],
 )
 
 #let introduction(title: [Introduction], it) = {
@@ -51,12 +51,12 @@
   )
   // #set par(linebreaks: "optimized")
   #set par(justify: true, linebreaks: "optimized")
-
   #set text(size: 13pt)
+  #set heading(numbering: "A)")
   #show heading.where(level: 1): it => [
     #v(1em, weak: true)
     #set align(center)
-    #minititle[#it.body]
+    #minititle[#it]
   ]
   #v(-5.5pt)
   #align(center)[#rect(
@@ -73,6 +73,7 @@
             radius: 6pt,
           )[
               #set text(size: 26pt)
+              #set text(hyphenate: false)
               *Chapitre #number: #title*
             ]])
       ]]
