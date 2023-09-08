@@ -20,9 +20,9 @@
   )
 ]
 
-#let minititle(it) = box(
+#let minititle(it, size : 18pt) = box(
   inset: (top: 2pt, bottom: 2pt, x: 5pt),
-  text(18pt)[_#it _],
+  text(size,hyphenate: false)[_#it _],
 )
 
 #let introduction(title: [Introduction], it) = {
@@ -40,8 +40,10 @@
   title: none,
   chapter_name: none,
   number: none,
+  exercice_mode : false,
   body,
 ) = [
+  #let type = if not exercice_mode [Activité] else [Exercices]
   #set page(
     paper: "a4",
     margin: (x: 1.2cm, top: 2cm, bottom: 2cm),
@@ -50,7 +52,7 @@
       counter(page).display("1 / 1", both: true),
     ),
     header: [
-      Activité #number --- chap. #chapter_name
+      #type #number --- chap. #chapter_name
       #h(1fr)
       2023-24
       #h(1fr)
@@ -66,6 +68,10 @@
     #minititle[#it.supplement #counter(heading).display() #it.body]
   ]
   #set text(size: 13pt)
+  #show footnote.entry: set text(12pt)
+
+
+
   #show footnote.entry: it => {
     // add the footnote to the map
     locate(loc => {
@@ -101,7 +107,8 @@
           )[
               #set text(size: 21pt)
 
-              *Activité #number: #title*
+              *#type #number *
+              #if title != none [*: #title*]
             ]])
       ]]
   #body

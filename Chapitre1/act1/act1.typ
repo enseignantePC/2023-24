@@ -5,18 +5,24 @@
   number: 1,
   it,
 )
+#show footnote: it => box(
+  scale(
+    x: 120%,
+    y: 120%,
+  )[*#it*],
+)
 
 #introduction[
-    C'est Antoine de Lavoisier, le célèbre chimiste
-    français, qui, en 1777, découvre que l'air est
-    constitué de plusieurs gaz. L'expérience de
-    Lavoisier consiste à faire chauffer du mercure
-    dans une enceinte fermée contenant de l'air et à
-    observer les changements ayant lieu.
+  C'est Antoine de Lavoisier, le célèbre chimiste
+  français, qui, en 1777, découvre que l'air est
+  constitué de plusieurs gaz. L'expérience de
+  Lavoisier consiste à faire chauffer du mercure
+  dans une enceinte fermée contenant de l'air et à
+  observer les changements ayant lieu.
 
-    *_Quelles observations ont permis à Lavoisier de
-    déterminer la composition de l'air ?_*
-  ]
+  *_Quelles observations ont permis à Lavoisier de
+  déterminer la composition de l'air ?_*
+]
 
 #set align(center)
 
@@ -35,17 +41,15 @@
     pour le faire bouillir.
 
     Le second jour, j'ai commencé à voir nager sur la
-    surface du mercure de petites parcelles rouges 
-    #footnote[Il se produit dans le matras une transformation
-    chimique au cours de laquelle le dioxygène réagit
-    avec le mercure pour former de l'oxyde de mercure
-    HgO, rouge.]
-    , qui, pendant quatre ou cinq jours ont augmenté
-    en nombre et en volume ; après quoi elles ont
-    cessé de grossir et sont restées absolument dans
-    le même état. Au bout de douze jours, [ ...] la
-    calcination du mercure ne faisait plus aucun
-    progrès [ ...].
+    surface du mercure de petites parcelles rouges
+    #footnote[*_Il se produit dans le matras une transformation 
+    chimique au cours de laquelle le dioxygène réagit avec le 
+    mercure pour former de l'oxyde de mercure HgO, rouge._*], 
+    qui, pendant quatre ou cinq jours ont augmenté en nombre 
+    et en volume ; après quoi elles ont cessé de grossir et sont 
+    restées absolument dans le même état. Au bout de douze
+    jours, [ ...] la calcination du mercure ne faisait
+    plus aucun progrès [ ...].
 
     Le volume de l'air contenu tant dans le matras que
     dans son col et sous la partie vide de la cloche,

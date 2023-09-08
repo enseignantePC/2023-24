@@ -1,9 +1,11 @@
+#let ok = sym.checkmark
 + 1ère activité prête
 + cours buffer, annexes, énigme
 + le premier chapitre
   + activité
-  + exercices
-  + cours
+    + $ok$
+  + exercices 
+  + cours $ok$
 
 Corps purs et mélange
 - Précision de la verrerie
