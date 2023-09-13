@@ -8,10 +8,11 @@
 )
 #v(-5pt)
 
-#introduction[ Au cours de l'histoire, la monnaie a été faites de différents métaux. Pour éviter les fraudes et les arnaques, il faut une méthode pour distinguer deux métaux.
+#introduction[ Au cours de l'histoire, la monnaie a été faite de différents métaux.
+Pour éviter les fraudes et les arnaques, il faut une méthode pour distinguer deux métaux.
 En chimie, on aura besoin de distinguer les espèces chimiques.
 
-*_Peut-on différencier des espèces chimiques à l'aide de leur masse volumique. _*]
+*_Peut-on différencier des espèces chimiques à l'aide de leur masse volumique. _* ]
 
 // question, pate à crêpe.
 
@@ -93,11 +94,11 @@ En chimie, on aura besoin de distinguer les espèces chimiques.
 ]
 
 #question[
-  Les mesures permettent-elles d'identifier chacun des échantillons  ?
+  Les mesures permettent-elles d'identifier chacun des échantillons?
 ]
 
 #question[
-   La mesure de la masse volumique d'un échantillon permet-elle de déterminer sa nature avec certitude ? *Essaier de trouver un example*.
+   La mesure de la masse volumique d'un échantillon permet-elle de déterminer sa nature avec certitude ? *Trouver un example ou un contre-example.*.
 ]
 
 // #minititle[Ouverture : Qu'avez vous appris sur la précision]
@@ -113,7 +114,7 @@ Acétone	0,784	Liquide incolore
 
 #figure(
   placement: bottom,
-  caption: [Masse volumique de divers espèces chimiques],
+  caption: [Masses volumiques de diverses espèces chimiques],
   table(
     columns: 3,
     align: center + horizon,

@@ -1,6 +1,6 @@
 #import "../../act_template.typ": *
 #show : it => activité(
-  exercice_mode: true,
+  kind: [Exercice],
   chapter_name: [Identification des espèces chimiques.],
 //   number: 1,
   it,
