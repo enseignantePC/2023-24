@@ -3,11 +3,15 @@
 #let doc_counter = counter("doc")
 #let doc(
   ..body,
+  width: 1fr,
   title: none,
   title-size: 15pt,
-  boxed: true,
-  show_doc: false,
-) = {
+  boxed: false,
+  shadow : true,
+  show_doc: true,
+) = box(
+  width: width,
+  {
   doc_counter.step()
   showybox(
     title: text(size: title-size)[
@@ -28,8 +32,8 @@
       align: center,
       breakable: false,
     ),
-    shadow: (color: black),
+    shadow: if shadow {(color: black)},
     breakable: true,
     ..body,
   )
-}
+})

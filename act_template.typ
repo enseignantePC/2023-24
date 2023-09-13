@@ -39,11 +39,10 @@
 #let activité(
   title: none,
   chapter_name: none,
+  kind : [Activité],
   number: none,
-  exercice_mode : false,
   body,
 ) = [
-  #let type = if not exercice_mode [Activité] else [Exercices]
   #set page(
     paper: "a4",
     margin: (x: 1.2cm, top: 2cm, bottom: 2cm),
@@ -52,7 +51,7 @@
       counter(page).display("1 / 1", both: true),
     ),
     header: [
-      #type #number --- chap. #chapter_name
+      #kind #number --- chap. #chapter_name
       #h(1fr)
       2023-24
       #h(1fr)
@@ -60,7 +59,6 @@
       #v(-5pt)
     ],
   )
-  
   #set heading(numbering: "1.", supplement: [Partie])
   #show heading.where(level: 1): it => [
     #v(1em, weak: true)
@@ -107,7 +105,7 @@
           )[
               #set text(size: 21pt)
 
-              *#type #number *
+              *#kind #number *
               #if title != none [*: #title*]
             ]])
       ]]
