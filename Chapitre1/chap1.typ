@@ -12,6 +12,8 @@
   it,
   columnized: false,
 )
+#let doc = doc.with(boxed: true)
+#set text(12pt)
 
 = Corps purs et mélanges
 
@@ -128,6 +130,7 @@
     masse volumique de l'eau.
 
     La densité est donc définie par la relation : #text(size : 1.5em)[$d = rho/rho_"eau"$]
+    #v(4pt)
   ]
 
 // https://www.lelivrescolaire.fr/page/6224013
@@ -150,7 +153,7 @@
     ébullition, notée $theta_e$
 
   ]
-#pagebreak() // uncomment and bug report
+// #pagebreak() // uncomment and bug report
 #columns(2)[
 
   #doc(title: [Solubilité], breakable : false)[
